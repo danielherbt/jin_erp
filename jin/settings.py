@@ -179,5 +179,5 @@ STATICFILES_DIRS = (
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-if config('DJANGO_PRODUCTION_ENV'):
+if config('DJANGO_PRODUCTION'):
     from .producction import *
