@@ -11,7 +11,7 @@ class BaseModel(models.Model):
     """Model definition for BaseModel."""
 
     # TODO: Define fields here
-    status = models.BooleanField(verbose_name ='Activo',default = True)
+    status = models.BooleanField(verbose_name ='Activo',default = 1)
     created = models.DateTimeField(verbose_name ="Creado",help_text ='Fecha de Creación', auto_now=False, auto_now_add=True, editable=False)
     updated = models.DateTimeField(verbose_name ="Modificado",help_text='Fecha de Modificación', auto_now=True, auto_now_add=False, editable=False)
     #deleted_date = models.DateField('Fecha de Eliminación', auto_now=True, auto_now_add=False)
@@ -71,7 +71,7 @@ class EntityBaseModel(BaseModel):
     lastname = models.CharField(max_length=100, verbose_name="Segundo Nombre",help_text="Apellido o Nombre Comercial",blank=True,null=True)
     birth = models.DateField(verbose_name="Natalicio",help_text="Fecha de Cumpleaños", auto_now=False, auto_now_add=False,blank=True,null=True)
     email = models.EmailField(verbose_name='Correo Electrónico',max_length = 255, unique = True)
-    photo = models.CharField(max_length=100, verbose_name="Imagen",help_text="Foto o Imagen en formato png",blank=True,null=True)
+    photo = models.ImageField( upload_to='img', height_field=None, width_field=None, max_length=255, verbose_name="Imagen",help_text="Foto o Imagen en formato png",blank=True,null=True)
     comment = models.TextField(verbose_name="Observaciones",help_text="Información Adicional",default=None,blank=True,null=True)
     
     class Meta:
@@ -85,7 +85,7 @@ class BaseLocation(TypesBaseModel):
     #subdistrict = models.ForeignKey(SubDistrict, verbose_name='Subparroquia', on_delete=models.RESTRICT,help_text='En que subparroquia esta ubicada')
     
     ref = models.TextField(verbose_name='Referencias',help_text='Información Adicional',null=True,blank=True)
-    long = models.CharField(verbose_name='Longitud', max_length=50,help_text='Coordenadas de Longitud',blank=True,null=True)
+    lon = models.CharField(verbose_name='Longitud', max_length=50,help_text='Coordenadas de Longitud',blank=True,null=True)
     lat = models.CharField(verbose_name='Latitud', max_length=50,help_text='Coordenadas de Latitud',blank=True,null=True)
     postal = models.CharField(verbose_name='Postal', max_length=50,null=True,blank=True,help_text='Número del Código Postal')
 
@@ -122,7 +122,7 @@ class Phones(BaseModel):
 
     phone = models.CharField('Teléfono',max_length=14,blank=True,default='',null=True,help_text="Telefono Ej:+(593)-99809-4322 ",validators=[PHONE_NUMBER_REGEX])
     principal = models.BooleanField(verbose_name='Principal',help_text='Si es el teléfono principal')
-    type = models.CharField(verbose_name='Tipo', max_length=1, help_text='Tipo de Teléfono',choices=TypePhone.choices,default='MOVIL')
+    kind = models.CharField(verbose_name='Tipo', max_length=1, help_text='Tipo de Teléfono',choices=TypePhone.choices,default='MOVIL')
     use = models.CharField(verbose_name='Uso', max_length=1, help_text='Tipo de Uso del Teléfono',choices=Address.TypeAddress.choices,default='HOME')
     ext = models.CharField(verbose_name='Extensión', max_length=10,null=True,blank=True,help_text='Extensión del Número de Teléfono')
     

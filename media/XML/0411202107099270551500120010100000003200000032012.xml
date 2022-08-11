@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<comprobanteRetencion id="comprobante" version="1.0.0">
+	<infoTributaria>
+		<ambiente>2</ambiente>
+		<tipoEmision>1</tipoEmision>
+		<razonSocial>Technomacro S A</razonSocial>
+		<nombreComercial>Technomacro S A</nombreComercial>
+		<ruc>0992705515001</ruc>
+		<claveAcceso>0411202107099270551500120010100000003200000032012</claveAcceso>
+		<codDoc>07</codDoc>
+		<estab>001</estab>
+		<ptoEmi>010</ptoEmi>
+		<secuencial>000000320</secuencial>
+		<dirMatriz>Jorge Droom Y Pereira</dirMatriz>
+		<agenteRetencion>1</agenteRetencion>
+	</infoTributaria>
+	<infoCompRetencion>
+		<fechaEmision>04/11/2021</fechaEmision>
+		<dirEstablecimiento>Los Guayacanes Solar 20 Mz 74</dirEstablecimiento>
+		<obligadoContabilidad>SI</obligadoContabilidad>
+		<tipoIdentificacionSujetoRetenido>04</tipoIdentificacionSujetoRetenido>
+		<razonSocialSujetoRetenido>Munoz Munoz Franklin Alfonso</razonSocialSujetoRetenido>
+		<identificacionSujetoRetenido>1715232631001</identificacionSujetoRetenido>
+		<periodoFiscal>11/2021</periodoFiscal>
+	</infoCompRetencion>
+	<impuestos>
+		<impuesto>
+			<codigo>1</codigo>
+			<codigoRetencion>312</codigoRetencion>
+			<baseImponible>40.50</baseImponible>
+			<porcentajeRetener>1.75</porcentajeRetener>
+			<valorRetenido>0.71</valorRetenido>
+			<codDocSustento>01</codDocSustento>
+			<numDocSustento>001001000001525</numDocSustento>
+			<fechaEmisionDocSustento>04/11/2021</fechaEmisionDocSustento>
+		</impuesto>
+	</impuestos>
+	<infoAdicional>
+		<campoAdicional nombre="concepto">Orden De Compra 849</campoAdicional>
+		<campoAdicional nombre="Agente de Retención">No. Resolución: 1</campoAdicional>
+	</infoAdicional>
+</comprobanteRetencion>

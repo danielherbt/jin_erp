@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from api.schoolfees.models import Debt, Payment
+from api.docs.models import Docs, Agreements
 
 ###-----------Exclusiv School Fees-------------------
 class DebtSerializer(serializers.HyperlinkedModelSerializer):
@@ -33,7 +34,6 @@ class DebtSerializer(serializers.HyperlinkedModelSerializer):
                 'Institucion Url' : data['institution']
         }    
 
-###-----------Exclusiv School Fees-------------------
 class PaymentSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
@@ -55,3 +55,14 @@ class PaymentSerializer(serializers.HyperlinkedModelSerializer):
             'Cliente' : instance.client.name,
             'Clinte Url' : data['client']
         } 
+
+###-----------Exclusiv Docs---------------------------
+class DocSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Docs
+        exclude = ('status','created','updated')  
+
+class AgreeDocSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Agreements
+        exclude = ('status','created','updated') 

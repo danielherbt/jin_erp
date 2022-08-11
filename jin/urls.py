@@ -1,10 +1,11 @@
+from django.contrib import admin
 from django.conf import settings
+from django.views.static import serve
 from django.conf.urls.static import static
 from drf_spectacular.views import SpectacularJSONAPIView
 from drf_spectacular.views import SpectacularRedocView
 from drf_spectacular.views import SpectacularSwaggerView
 from drf_spectacular.views import SpectacularYAMLAPIView
-from django.contrib import admin
 from rest_framework import permissions
 from django.urls import path, include, re_path
 
@@ -22,4 +23,9 @@ urlpatterns = [
     path('api/administracion/', include('api.manage.urls')),
     path('api/escuelacobros/', include('api.schoolfees.urls')),
     path('api/ventas/', include('api.sales.urls')),
+    path('api/documentos/', include('api.docs.urls')),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+urlpatterns +=[
+    re_path(r'^media/(?P<path>.*)$',serve,{'document_root':settings.MEDIA_ROOT,})
+] 

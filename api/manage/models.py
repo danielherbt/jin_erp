@@ -1,6 +1,7 @@
 from django.core.validators import RegexValidator
 from django.db import models
 from api.base.models import TypesBaseModel, EntityBaseModel
+from django.contrib.auth.models import User
 
 DNI_NUMBER_REGEX = RegexValidator(r'^[A-Za-z0-9]{10,13}','Letras o números solamente')
 SERIE_NUMBER_REGEX = RegexValidator(r'^[0-9]{3}-[0-9]{3}','Debe tener el formato "###-###"')
@@ -90,4 +91,43 @@ class Subsidiary(EntityBaseModel):
         ordering = ['name']
 
     def __str__(self):
+        return self.name 
+
+class Modules(TypesBaseModel):
+    
+    class Meta:
+        """Meta definition for BaseModel."""
+        verbose_name = 'Modulo'
+        verbose_name_plural = 'Modulos'
+        ordering = ['name']
+
+    def __str__(self):
+        return self.name            
+
+class ConnectDb(TypesBaseModel):
+    dbms = models.CharField(verbose_name='DBMS',help_text='Motor de Base de Datos',max_length=50,blank=True,null=True)
+    port = models.CharField(verbose_name='Puerto',help_text='Puerto de la Base de Datos',max_length=7,blank=True,null=True)
+    user = models.CharField(verbose_name='Usuario',help_text='Usuario de la Base de Datos',max_length=50,blank=True,null=True)
+    passw = models.CharField(verbose_name='Password',help_text='Clave de la Base de Datos',max_length=20,blank=True,null=True)
+
+    class Meta:
+        """Meta definition for BaseModel."""
+        verbose_name = 'Conexion'
+        verbose_name_plural = 'Conexiones'
+        ordering = ['name']
+
+    def __str__(self):
         return self.name    
+
+class UsersDb(TypesBaseModel):
+    company = models.ForeignKey(Company, verbose_name='Compania', help_text='Compania a la que pertenece',on_delete=models.RESTRICT)
+    user = models.ForeignKey(User,verbose_name='Usuario', help_text='Usuario del Sistema',on_delete=models.RESTRICT)
+    connect = models.ForeignKey(ConnectDb, verbose_name='Conexion', help_text='Perfil de Conexion',on_delete=models.RESTRICT)
+    class Meta:
+        """Meta definition for BaseModel."""
+        verbose_name = 'Usuario BD'
+        verbose_name_plural = 'Usuarios BD'
+        ordering = ['name']
+
+    def __str__(self):
+        return self.name  

@@ -2,7 +2,7 @@ from rest_framework import serializers
 from api.manage.models import Country, State, City, District, SubDistrict ,Company ,Subsidiary
 from api.schoolfees.models import Institution
 
-
+###----------- Manage ---------------------------------
 class CountrySerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
@@ -47,6 +47,7 @@ class SubsidiarySerializer(serializers.HyperlinkedModelSerializer):
         model = Subsidiary
         exclude = ('status','created','updated')
 
+###----------- School Fees ---------------------------------
 class InstitutionSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:

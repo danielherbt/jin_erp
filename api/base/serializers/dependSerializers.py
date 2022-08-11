@@ -1,13 +1,25 @@
 from rest_framework import serializers
 from api.base.models import Genre
+from api.manage.models import ConnectDb, Modules
 from api.schoolfees.models import Period, Career, Level, Parallel, Kind
+from api.docs.models import ClassDocs
 
-
-
+###-----------Exclusiv Manage-------------------
 class GenreSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Genre
         exclude = ('status','created','updated')
+
+class ConnectDbSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = ConnectDb
+        exclude = ('status','created','updated')
+
+class ModuleSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Modules
+        exclude = ('status','created','updated')        
+
 
 ###-----------Exclusiv School Fees-------------------
 
@@ -36,4 +48,13 @@ class KindSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Kind
         exclude = ('status','created','updated')
-###---------------------------------------------------------
+
+
+###-----------Exclusiv Docs---------------------------------
+
+class ClassDocSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = ClassDocs
+        exclude = ('status','created','updated')
+
+             

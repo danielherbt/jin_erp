@@ -63,6 +63,7 @@ class Career(TypesBaseModel):
         return self.name   
 
 class Level(TypesBaseModel):
+    code = models.CharField(verbose_name='Código', max_length=50,help_text='Código',blank=True,null=True)
 
     class Meta:
         verbose_name = 'Nivel'
@@ -105,7 +106,7 @@ class Debt(BaseModel):
 
     code = models.CharField(max_length=50,verbose_name='Código',help_text='ID de otro sistema',unique=True,blank=False,null=False)
     date = models.DateTimeField(verbose_name='Fecha',help_text='Fecha del registro de deuda',default=datetime.now,blank=True,null=False)
-    value = models.DecimalField(max_digits=10,decimal_places=2,help_text='Ingrese el valor de la deuda',verbose_name='Valor',blank=False,null=False)
+    value = models.DecimalField(max_digits=10,decimal_places=2,help_text='Valor de la deuda',verbose_name='Valor',blank=False,null=False)
     
     class Meta:
         ordering = ['date']
