@@ -77,7 +77,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'jin-erp.wsgi.application'
+WSGI_APPLICATION = 'jin.wsgi.application'
 
 
 # Database
