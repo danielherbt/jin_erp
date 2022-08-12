@@ -1,2 +1,2 @@
  
-web: gunicorn jin.wsgi --log-file -
+web: gunicorn jin-erp.wsgi --log-file -
