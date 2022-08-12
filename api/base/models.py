@@ -102,7 +102,7 @@ class Address(BaseLocation):
         WORK ='W','Laboral'
         OTHERS ='O','Otro'
 
-    type = models.CharField(verbose_name='Tipo', max_length=1, help_text='Tipo de Teléfono',choices=TypeAddress.choices,default='HOME')
+    kind = models.CharField(verbose_name='Tipo', max_length=1, help_text='Tipo de Teléfono',choices=TypeAddress.choices,default='HOME')
     secondary = models.CharField(verbose_name='Calle Secundaria', max_length=100,null=True,blank=True)
     number = models.CharField(verbose_name='Numeración', max_length=10,null=True,blank=True,help_text='Numeración de la dirección')
     current = models.BooleanField(verbose_name='Actual',help_text='Si es la direción actual')
