@@ -143,4 +143,6 @@ class Commercial(EntityBaseModel):
         """Meta definition for EntityBaseModel."""
         abstract = True
         verbose_name = 'Base Persona Comercial'
-        verbose_name_plural = 'Base Personas Comercial'                   
+        verbose_name_plural = 'Base Personas Comercial'            
+        
+               

@@ -53,8 +53,10 @@ class KindSerializer(serializers.HyperlinkedModelSerializer):
 ###-----------Exclusiv Docs---------------------------------
 
 class ClassDocSerializer(serializers.HyperlinkedModelSerializer):
+    
     class Meta:
         model = ClassDocs
-        exclude = ('status','created','updated')
+        fields = '__all__'
+       
 
              

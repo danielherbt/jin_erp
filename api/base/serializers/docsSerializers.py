@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from api.schoolfees.models import Debt, Payment
-from api.docs.models import Docs, Agreements
+from api.docs.models import Agreements, Docs #, ClassDocs
+
 
 ###-----------Exclusiv School Fees-------------------
 class DebtSerializer(serializers.HyperlinkedModelSerializer):
@@ -58,11 +59,15 @@ class PaymentSerializer(serializers.HyperlinkedModelSerializer):
 
 ###-----------Exclusiv Docs---------------------------
 class DocSerializer(serializers.HyperlinkedModelSerializer):
+    ### Para que se muestre el nombre del campo relacionado en lugar del ID
+    #classdoc = serializers.SlugRelatedField(slug_field="name", queryset=ClassDocs.objects.all())
     class Meta:
         model = Docs
-        exclude = ('status','created','updated')  
+       # exclude = ('status','created','updated')  
+        fields = '__all__'
 
 class AgreeDocSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Agreements
-        exclude = ('status','created','updated') 
+        # exclude = ('status','created','updated') 
+        fields = '__all__'

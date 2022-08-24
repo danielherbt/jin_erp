@@ -131,3 +131,14 @@ class UsersDb(TypesBaseModel):
 
     def __str__(self):
         return self.name  
+
+class Partner(EntityBaseModel):
+    term = models.IntegerField(help_text='Plazo de Crédito en dias',verbose_name='Plazo',default=0)
+    percent_discount = models.DecimalField(max_digits=5,decimal_places=2,help_text='Porcentaje de Descuento',verbose_name='Descuento',default=0)
+    #serie = models.CharField(verbose_name='Serie',help_text='Número de Serie SRI',max_length=7,blank=True,null=True,validators=[SERIE_NUMBER_REGEX])
+
+    class Meta:
+        """Meta definition for EntityBaseModel."""
+        abstract = True
+        verbose_name = 'Afiliado'
+        verbose_name_plural = 'Afiliados'  
