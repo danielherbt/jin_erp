@@ -17,8 +17,10 @@ class ClassDocs(TypesBaseModel):
 
 class Docs(TypesBaseModel):
     classdoc = models.ForeignKey(ClassDocs, verbose_name='TipoDoc', help_text='Tipo de Documento',on_delete=models.RESTRICT)
-
-    pathdoc = models.CharField(verbose_name='Ruta',help_text='Ruta donde se guarda el archivo',max_length=255,blank=True,null=True)
+    
+    datedoc = models.DateField(verbose_name='Fecha',help_text='Fecha del documento',blank=True,null=False)
+    pathxmldoc = models.CharField(verbose_name='Ruta 1',help_text='Ruta donde se guarda el archivo 1',max_length=255,blank=True,null=True)
+    pathpdfdoc = models.CharField(verbose_name='Ruta 2',help_text='Ruta donde se guarda el archivo 2',max_length=255,blank=True,null=True)
     receiverdoc = models.CharField(verbose_name='Destinatario',help_text='Persona que recibe el documento',max_length=100,blank=True,null=True)
     rucdoc = models.CharField(verbose_name='Ruc',help_text='Ruc del receptor del Documento',max_length=13,blank=True,null=True)
     xmldoc = models.FileField('Xml',help_text='Documento Xml',upload_to='XML/', max_length=255,blank=True,null=True)
