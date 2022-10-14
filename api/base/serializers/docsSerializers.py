@@ -31,7 +31,7 @@ class DebtSerializer(serializers.HyperlinkedModelSerializer):
                 'Periodo Url': data['period'],
                 'Paralelo' : instance.parallel.name,
                 'Paralelo Url': data['parallel'],
-                'Institucion' : instance.institution.name,
+                'Institucion' : instance.institut.name,
                 'Institucion Url' : data['institution']
         }    
 
