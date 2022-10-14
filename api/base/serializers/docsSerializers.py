@@ -32,7 +32,7 @@ class DebtSerializer(serializers.HyperlinkedModelSerializer):
                 'Paralelo' : instance.parallel.name,
                 'Paralelo Url': data['parallel'],
                 'Institucion' : instance.institut.name,
-                'Institucion Url' : data['institution']
+                'Institucion Url' : data['institut']
         }    
 
 class PaymentSerializer(serializers.HyperlinkedModelSerializer):
