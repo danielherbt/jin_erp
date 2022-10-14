@@ -19,7 +19,7 @@ class DebtSerializer(serializers.HyperlinkedModelSerializer):
                 'Fecha de Deuda': instance.date,
                 'Código de Deuda' : instance.code,
                 'Valor de Deuda' : instance.value,
-                'Estudiante' : instance.student.lastname+' '+instance.student.name,
+                'Estudiante' : instance.student.name,
                 'Estudiante Url': data['student'],
                 'Carrera' : instance.career.name,
                 'Carrera Url': data['career'],
